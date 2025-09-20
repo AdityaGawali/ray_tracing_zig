@@ -1,0 +1,13 @@
+# Zig
+zig-out/
+.zig-cache/
+zig-cache/
+cache/
+# Common build dirs
+build/
+# Editors/OS
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/
