@@ -18,6 +18,7 @@ pub fn main() !void {
     const img_wd_f: f64 = @as(f64, @floatFromInt((image_width)));
 
     for (0..image_height) |x| {
+        std.debug.print("Rendering {d}/{d} lines\r", .{ x + 1, image_height });
         for (0..image_width) |y| {
             const x_f: f64 = @as(f64, @floatFromInt(x));
             const y_f: f64 = @as(f64, @floatFromInt(y));
@@ -34,6 +35,6 @@ pub fn main() !void {
             _ = try file.write(line);
         }
     }
-
+    std.debug.print("\n", .{});
     try file.sync();
 }
