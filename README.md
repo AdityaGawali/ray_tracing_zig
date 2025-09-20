@@ -9,3 +9,5 @@
 - Convert .ppm into png 
    ``` convert out.ppm out.png```
 
+------------------------------------------------
+1. Write pixel data in ppm file
