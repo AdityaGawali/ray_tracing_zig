@@ -1,4 +1,6 @@
 const std = @import("std");
+const vec3 = @import("vector_util.zig");
+const vec_3_f32 = @Vector(3, f32);
 
 const image_width: u32 = 1024;
 const image_height: u32 = 960;
