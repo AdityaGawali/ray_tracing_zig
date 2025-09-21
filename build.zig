@@ -41,6 +41,19 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    const color_mod = b.addModule("color", .{
+        // The root source file is the "entry point" of this module. Users of
+        // this module will only be able to access public declarations contained
+        // in this file, which means that if you have declarations that you
+        // intend to expose to consumers that were defined in other files part
+        // of this module, you will have to make sure to re-export them from
+        // the root file.
+        .root_source_file = b.path("src/color.zig"),
+        // Later on we'll use this module as the root module of a test executable
+        // which requires us to specify a target.
+        .target = target,
+        .optimize = optimize,
+    });
 
     // Here we define an executable. An executable needs to have a root module
     // which needs to expose a `main` function. While we could add a main function
@@ -83,6 +96,7 @@ pub fn build(b: *std.Build) void {
             //.{ .name = "ray_tracing", .module = mod },
             .imports = &.{
                 .{ .name = "vector_util", .module = vector_mod },
+                .{ .name = "color", .module = color_mod },
             },
         }),
     });

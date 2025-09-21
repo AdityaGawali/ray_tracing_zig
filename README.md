@@ -17,3 +17,4 @@ Zig version `0.15.1`
 1. Write pixel data in ppm file
 2. Add progress bar in loop
 3. Add vector util 
+4. Add color module
